@@ -18,12 +18,22 @@ void imprime_tabuleiro(int tab[4][4]){
 }
 
 int pode_por(int tab[4][4], int i, int j){
-    for(int l = i,k = j; l < 4 && k < 4; l++,k++){
+  for(int l = i,k = j; l < 4 && k < 4; l++,k++){
+        if(tab[l][k] == 1){
+            return 0;
+        }
+    }
+    for(int l = i,k = j; l >= 0 && k < 4; l--,k++){
         if(tab[l][k] == 1){
             return 0;
         }
     }
     for(int l = i,k = j; l >= 0 && k >= 0; l--,k--){
+        if(tab[l][k] == 1){
+            return 0;
+        }
+    }
+    for(int l = i,k = j; l < 4 && k >= 0; l++,k--){
         if(tab[l][k] == 1){
             return 0;
         }
